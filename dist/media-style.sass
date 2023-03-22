@@ -1,0 +1,50 @@
+$xxl: 1400px
+$xl: 1200px
+$lg: 992px
+$md: 768px
+$small: 540px
+
+$medium: 1700px
+
+.header
+  &__container
+    @media (min-width: $medium)
+      max-width: 1620px
+      margin: auto
+nav
+  & li
+    @media (max-width: $xxl)
+      padding-left: 2vw
+    @media (max-width: $xl)
+      padding-left: 1vw
+.feedback
+  @media (max-width: $xl)
+    padding-left: 0.5vw
+
+h1
+  @media (max-width: $lg)
+    font-size: 30px
+    text-align: center
+  @media (max-width: $small)
+    font-size: 20px
+    line-height: 40px
+h3
+  @media (max-width: $lg)
+    text-align: center
+h2
+  @media (max-width: $lg)
+    font-size: 24px
+    line-height: 40px
+#advantages,.advant__width .text
+    @media (max-width: $md)
+      text-align: center
+.advant__img
+  @media (max-width: $md)
+    display: flex
+    justify-content: center
+.advant__width
+  @media (max-width: $md)
+    width: 100%
+.text__block
+  @media (max-width: $lg)
+    text-align: center

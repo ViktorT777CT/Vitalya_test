@@ -2,4 +2,217 @@ body {
   font-family: "Manrope", sans-serif;
 }
 
+a {
+  text-decoration: none !important;
+}
+
+li {
+  list-style-type: none;
+}
+
+header {
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.feedback button:hover, a:hover {
+  text-shadow: 0 0 1px, 0 0 1px;
+  border-bottom: 1px solid;
+}
+
+nav {
+  font-weight: 400;
+}
+nav li {
+  padding-left: 3.13vw;
+}
+nav a {
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0);
+}
+nav a:hover {
+  text-shadow: 0 0 1px, 0 0 1px;
+  border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 3.65vw;
+  line-height: 77px;
+  color: rgb(255, 255, 255);
+}
+h1 span {
+  color: rgb(115, 122, 254);
+}
+
+h2 {
+  font-weight: 500;
+  font-size: 2.6vw;
+  line-height: 3.65vw;
+  color: #fff;
+}
+
+h3 {
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 35px;
+  color: rgb(33, 40, 175);
+}
+
+h4 {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 54px;
+  color: #fff;
+}
+
+.feedback {
+  padding-left: 1.56vw;
+}
+.feedback_button {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0);
+}
+
+.header {
+  background: radial-gradient(45.49% 221.07% at 77.6% 49.94%, #4850E4 0%, #2127AE 100%);
+  height: 871px;
+}
+.header__img {
+  max-width: 600px;
+  right: -30px;
+  top: 150px;
+}
+
+.bg__blue {
+  background: radial-gradient(45.49% 221.07% at 77.6% 49.94%, #4850E4 0%, #2127AE 100%) !important;
+  border-bottom: 1px solid #fff;
+}
+
+#services {
+  padding-top: 6.25vw;
+  padding-bottom: 7.81vw;
+}
+
+.services__block {
+  padding-top: 54px;
+}
+.services__card {
+  border: 0.5px solid rgb(33, 40, 175);
+  padding: 2.6vw;
+  height: 100%;
+}
+.services__card-img {
+  border-bottom: 1px solid rgb(174, 190, 210);
+  margin-bottom: 3.33vw;
+}
+.services__card img {
+  padding: 2.29vw;
+}
+
+.text {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 25.2px;
+  color: rgb(29, 50, 78);
+}
+.text__block {
+  border: 0.5px solid rgb(33, 40, 175);
+  padding: 1.41vw;
+}
+
+#we_work {
+  background: rgb(33, 40, 175);
+  padding-top: 4.79vw;
+  padding-bottom: 6.61vw;
+}
+#we_work h3, #we_work .text {
+  color: #fff;
+}
+
+.tab__block {
+  padding-left: 5.21vw;
+  padding-right: 5.21vw;
+}
+
+#v-pills-tabContent {
+  padding-top: 3.91vw;
+}
+
+#v-pills-tab {
+  padding-top: 3.91vw;
+}
+
+.nav-link {
+  height: 50px;
+  margin: 5px;
+  padding: 0;
+}
+.nav-link.active {
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+.nav-link.active h4 {
+  height: 100%;
+  border-bottom: 1px solid rgb(174, 190, 210);
+}
+
+.po-03 {
+  padding-top: 7.81vw;
+}
+.po-03_bottom {
+  padding-bottom: 7.81vw;
+}
+
+.advant__img {
+  height: 70px;
+}
+.advant__block {
+  padding-top: 5.21vw;
+}
+.advant__width {
+  width: 90%;
+}
+
+footer {
+  background-color: rgb(33, 40, 175);
+  padding-top: 2.6vw;
+  padding-bottom: 4.17vw;
+}
+footer p, footer a {
+  font-weight: 400;
+  font-size: 14px;
+  color: #fff;
+  line-height: 24px;
+}
+
+.modal-dialog {
+  max-width: 650px;
+}
+
+#name, #tell, #message {
+  border: 1px solid rgb(33, 40, 175);
+  border-radius: 0;
+}
+
+.form__label {
+  position: relative;
+}
+.form__label label {
+  position: absolute;
+  font-size: 9px;
+  line-height: 9px;
+  top: -9px;
+  left: 13px;
+  background-color: #fff;
+  padding: 5px;
+}
+
+.button-form {
+  color: rgb(33, 40, 175);
+  padding: 20px;
+  border: 1px solid rgb(33, 40, 175);
+  background-color: #fff;
+}
+
 /*# sourceMappingURL=style.css.map */

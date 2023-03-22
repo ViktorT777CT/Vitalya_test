@@ -2,13 +2,572 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
-    <link rel="stylesheet" href="dist/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="dist/style.css">
+    <link rel="stylesheet" href="dist/media-style.css">
 </head>
 <body>
+<!-- Button trigger modal -->
 
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title fs-5" id="staticBackdropLabel">Обратная связь</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <p class="text">
+                        Оставьте свою заявку и наш менеджер свяжется с вами.
+                    </p>
+                </div>
+                <div>
+                    <div>
+
+                        <div class="form-container form__wrapper">
+                            <form id="feedback-form" action="/feedback/form-processing.php" enctype="multipart/form-data" novalidate>
+                                <div class="form-row pt-4">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="form-group form__label">
+                                            <label for="name" class="control-label">Как к вам обращаться?</label>
+                                            <input id="name" type="text" name="name" class="form-control" value="" minlength="2"
+                                                   maxlength="30" required="required">
+                                            <div class="invalid-feedback"></div>
+                                        </div>
+                                        <div class="form-group form__label">
+                                            <label for="tell" class="control-label">Телефон</label>
+                                            <input id="tell" type="tell" name="tell" required="required" class="form-control" value=""
+                                                   placeholder="+7 ___ ___ __ __">
+                                            <div class="invalid-feedback"></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="form-group form__label mt-4">
+                                    <label for="message" class="control-label">Коментарий</label>
+                                    <textarea id="message" name="message" class="form-control" rows="3"
+                                               minlength="20" maxlength="500"
+                                              required="required"></textarea>
+                                    <div class="invalid-feedback"></div>
+                                </div>
+
+
+
+                                <!-- Капча -->
+                                <div class="g-recaptcha pt-5" data-sitekey="6KepjAsTFFFFFFMqccY0ZiGqc3TEd3YVxo8cHsGX"></div>
+
+
+                                <div class="form-group form-agree form-check pt-5">
+                                    <input class="form-check-input" type="checkbox" name="agree" id="agree" required value="true">
+                                    <label class="form-check-label" for="agree">Я даю свое согласие на обработку моих персональных данных, в соответствии с
+                                        <a href="#">политикой конфиденциальности</a></label>
+                                    <div class="invalid-feedback"></div>
+                                </div>
+
+
+
+                                <div class="form-submit pt-5">
+                                    <button class="button-form" type="submit">Отправить сообщение</button>
+                                </div>
+
+                            </form>
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<section class="header">
+    <div class="header__container container-xl position-relative pb-5 h-100">
+        <header class="wrap d-flex pt-5">
+            <nav class="navbar bg-body-tertiary fixed-top d-lg-none bg__blue p-0">
+                <div class="container-fluid p-3">
+                    <a class="navbar-brand" href="#">
+                        <img src="img/logo.svg" class="logo">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="offcanvas offcanvas-end bg__blue w-100" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                        <div class="offcanvas-header">
+                            <img src="img/logo.svg" class="logo">
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                <li class="d-flex justify-content-center p-3">
+                                    <button type="button" class="feedback_button" data-bs-dismiss="offcanvas" aria-label="Close">
+                                        <a href="#services" class="text-white">Наши услуги</a>
+                                    </button>
+                                </li>
+                                <li class="d-flex justify-content-center p-3">
+                                    <button type="button" class="feedback_button" data-bs-dismiss="offcanvas" aria-label="Close">
+                                        <a href="#we_work" class="text-white">Как мы работаем</a>
+                                    </button>
+                                </li>
+                                <li class="d-flex justify-content-center p-3">
+                                    <button type="button" class="feedback_button" data-bs-dismiss="offcanvas" aria-label="Close">
+                                        <a href="#advantages" class="text-white">Наши преимущества</a>
+                                    </button>
+                                </li>
+                                <li class="d-flex justify-content-center p-3">
+                                    <button type="button" class="feedback_button" data-bs-dismiss="offcanvas" aria-label="Close">
+                                        <a href="#news" class="text-white">Новости</a>
+                                    </button>
+                                </li>
+                                <li class="d-flex justify-content-center p-3">
+                                    <button type="button" class="feedback_button" data-bs-dismiss="offcanvas" aria-label="Close">
+                                        <a href="#" class="text-white">Контакты</a>
+                                    </button>
+                                </li>
+                                <li class="d-flex justify-content-center p-3">
+                                    <button type="button" class="feedback_button" data-bs-dismiss="offcanvas" aria-label="Close">
+                                        <a href="tel:88000000000" class="text-white">8 800 000 00 00</a>
+                                    </button>
+                                </li>
+                                <li class="d-flex justify-content-center p-3">
+                                    <button type="button" class="feedback_button" data-bs-dismiss="offcanvas" aria-label="Close">
+                                        <button type="button" class="text-white feedback_button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                            Обратная связь
+                                        </button>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <div class="d-none d-lg-flex col-lg-9">
+                <div class="d-flex w-100">
+                    <div>
+                        <a href="#">
+                            <img src="img/logo.svg" class="logo">
+                        </a>
+                    </div>
+                    <nav class="m-0 d-flex align-items-center w-100 ">
+                        <ul class="m-0 p-0 d-flex">
+                            <li><a href="#services" class="text-white">Наши услуги</a></li>
+                            <li><a href="#we_work" class="text-white">Как мы работаем</a></li>
+                            <li><a href="#advantages" class="text-white">Наши преимущества</a></li>
+                            <li><a href="#news" class="text-white">Новости</a></li>
+                            <li><a href="#" class="text-white">Контакты</a></li>
+                        </ul>
+                    </nav>
+
+                </div>
+            </div>
+            <div class="d-none d-lg-flex col-lg-3 justify-content-end">
+                <div class="d-flex align-items-center  h-100 feedback">
+                    <div >
+                        <a href="tel:88000000000" class="text-white">8 800 000 00 00</a>
+                    </div>
+                    <div class="feedback">
+                        <button type="button" class="text-white feedback_button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            Обратная связь
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </header>
+        <div class="row h-100 d-flex align-items-center">
+            <div class="col-12 col-lg-9">
+                <div class="mb-5">
+                    <div class="row  d-flex justify-content-center justify-content-lg-start">
+                        <div class="col-12  d-flex justify-content-center justify-content-lg-start">
+                            <h1>Разработка и интеграция <br>
+                                <span> кода в ваш IT-ландшафт</span>
+                            </h1>
+                        </div>
+                        <div class="col-11 col-sm-7 mt-5  d-flex justify-content-center justify-content-lg-start">
+                            <p class="text-white text-center">
+                                Команда OSPrograms подберет оптимальную замену зарубежным системным продуктам.
+                                Мы обеспечим комплексную миграцию на отечественные IT-решения,
+                                которые входят в единый реестр российских программ для электронных вычислительных
+                                машин и баз данных от Минсвязи РФ
+                            </p>
+                        </div>
+                        <div class="col-10 mt-5  d-flex justify-content-center justify-content-lg-start">
+                            <a class="text-white border-bottom" href="#">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <img class="d-none d-lg-block position-absolute header__img" src="img/layer.svg">
+    </div>
+</section>
+<section id="services">
+    <div class="header__container container-xl">
+        <div class="d-block d-md-flex justify-content-between">
+            <div>
+                <h3>01. Наши услуги</h3>
+            </div>
+            <div>
+                <p class="text text-center text-md-left">
+                    Мы берёмся за задачи разной сложности: от <br>
+                    поставки готового ПО до разработки совсем <br>
+                    нового под ваши задачи
+                </p>
+            </div>
+        </div>
+        <div class="row g-xxl-5 services__block">
+            <div class="col-12 col-lg-4 pt-4 pt-lg-0">
+                <div class="services__card">
+                    <div class="d-flex justify-content-center services__card-img">
+                        <img src="img/servic1.svg">
+                    </div>
+                    <div>
+                        <h3>Разработка программ</h3>
+                        <p class="text pt-4">
+                            Наши Back-end и Front-end разработчики напишут приложение с нуля
+                            или усовершенствуют уже существующий код. Мы имеем опыт разработки
+                            как монолитных, так и микросервисный решений. Кроме того, умеем вести
+                            разработку высоконагруженных приложений
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4 pt-4 pt-lg-0">
+                <div class="services__card">
+                    <div class="d-flex justify-content-center services__card-img">
+                        <img src="img/servic2.svg">
+                    </div>
+                    <div>
+                        <h3>Поставка и внедрение</h3>
+                        <p class="text pt-4">
+                            Подберем готовые отечественные IT-решения из реестра Минсвязи
+                            РФ и грамотно внедрим их процессы компании
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4 pt-4 pt-lg-0">
+                <div class="services__card">
+                    <div class="d-flex justify-content-center services__card-img">
+                        <img src="img/servic3.svg">
+                    </div>
+                    <div>
+                        <h3>Интеграция и сопровождение</h3>
+                        <p class="text pt-4">
+                            Выполним задачи по интеграции со смежными информационными системами
+                            и источниками данных. Проведем тестирование, выведем приложение в
+                            продуктивную эксплуатацию и возьмем на сопровождение
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="we_work">
+    <div class="header__container  container-xl">
+        <div>
+            <h3>02. Как мы работаем</h3>
+            <p class="text pt-4">
+                Наши специалисты гибко подстроятся под ваш технический процесс.
+                Взаимодействие может осуществляться в формате Time & Material —
+                объем и стоимость работ зависят от сложности задачи. Или в формате Inhouse —
+                помещаем нашу команду в ваш штат и осуществляем постоянную поддержку вашего софта
+            </p>
+        </div>
+        <div class="d-block d-lg-flex align-items-start">
+
+            <div class="col col-lg-4 order-2">
+                <div class="nav flex-lg-column justify-content-around nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <button class="nav-link d-flex justify-content-start active" id="v-pills-analysis-tab" data-bs-toggle="pill" data-bs-target="#v-pills-analysis" type="button" role="tab" aria-controls="v-pills-analysis" aria-selected="true"><h4>1. Анализ</h4></button>
+                    <button class="nav-link d-flex justify-content-start" id="v-pills-recommendations-tab" data-bs-toggle="pill" data-bs-target="#v-pills-recommendations" type="button" role="tab" aria-controls="v-pills-recommendations" aria-selected="false"><h4>2. Рекомендации</h4></button>
+                    <button class="nav-link d-flex justify-content-start" id="v-pills-map-tab" data-bs-toggle="pill" data-bs-target="#v-pills-map" type="button" role="tab" aria-controls="v-pills-map" aria-selected="false"><h4>3. Дорожная карта</h4></button>
+                    <button class="nav-link d-flex justify-content-start" id="v-pills-piloting-tab" data-bs-toggle="pill" data-bs-target="#v-pills-piloting" type="button" role="tab" aria-controls="v-pills-piloting" aria-selected="false"><h4>4. Пилотирование</h4></button>
+                    <button class="nav-link d-flex justify-content-start" id="v-pills-test-tab" data-bs-toggle="pill" data-bs-target="#v-pills-test" type="button" role="tab" aria-controls="v-pills-test" aria-selected="false"><h4>5. Тестовый запуск</h4></button>
+                    <button class="nav-link d-flex justify-content-start" id="v-pills-integration-tab" data-bs-toggle="pill" data-bs-target="#v-pills-integration" type="button" role="tab" aria-controls="v-pills-integration" aria-selected="false"><h4>6. Безболезненное внедрение</h4></button>
+                </div>
+            </div>
+            <div class="col col-lg-8 order-1">
+                <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane fade show active" id="v-pills-analysis" role="tabpanel" aria-labelledby="v-pills-analysis-tab" tabindex="0">
+                        <div class="d-flex">
+                            <div class="d-none d-md-flex align-item center">
+                                <img src="img/we_work/tab-1.svg">
+                            </div>
+                            <div class="row tab__block">
+                                <h2>Проанализируем существующую IT-систему</h2>
+                                <div class="col-12 col-lg-6">
+                                    <p class="text pt-3">
+                                        Оценим функционал текущего программного обеспечения и оборудования,
+                                        определим критически важные элементы для внутренней инфраструктуры
+                                    </p>
+                                </div>
+                                <div class="col-12">
+                                    <div class="feedback p-0 pt-5">
+                                        <a href="#" class="text-white">Связаться с нами</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-recommendations" role="tabpanel" aria-labelledby="v-pills-recommendations-tab" tabindex="0">...</div>
+                    <div class="tab-pane fade" id="v-pills-map" role="tabpanel" aria-labelledby="v-pills-map-tab" tabindex="0">...</div>
+                    <div class="tab-pane fade" id="v-pills-piloting" role="tabpanel" aria-labelledby="v-pills-piloting-tab" tabindex="0">...</div>
+                    <div class="tab-pane fade" id="v-pills-test" role="tabpanel" aria-labelledby="v-pills-test-tab" tabindex="0">...</div>
+                    <div class="tab-pane fade" id="v-pills-integration" role="tabpanel" aria-labelledby="v-pills-integration-tab" tabindex="0">...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="po-03 po-03_bottom">
+    <div class="header__container container-xl">
+        <div>
+            <div>
+                <h3>
+                    03. Какие ПО мы предлагаем
+                </h3>
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <div>
+                        <p class="text">
+                            Наша компания является официальным партнером
+                            крупнейших российских разработчиков
+                        </p>
+                    </div>
+                    <div class="d-block d-lg-flex justify-content-between pt-5">
+                        <div class="d-flex flex-column pe-lg-3">
+                            <div>
+                                <p class="text text__block">
+                                    Операционные системы
+                                </p>
+                            </div>
+                            <div>
+                                <p class="text text__block">
+                                    Корпоративные мессенджеры
+                                </p>
+                            </div>
+
+                            <div>
+                                <p class="text text__block">
+                                    Системы электронной почты
+                                </p>
+                            </div>
+
+                            <div>
+                                <p class="text text__block">
+                                    Программы ВКС
+                                </p>
+                            </div>
+
+
+                        </div>
+                        <div class="d-flex flex-column">
+                            <div>
+                                <p class="text text__block">
+                                    Решения для резервного копирования
+                                </p>
+                            </div>
+                            <div>
+                                <p class="text text__block">
+                                    Платформы виртуализации
+                                </p>
+                            </div>
+
+                            <div>
+                                <p class="text text__block">
+                                    Антивирусная защита
+                                </p>
+                            </div>
+                        </div>
+
+
+
+
+
+
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="d-flex justify-content-center">
+                        <div>
+                            <div>
+                                <p class="text">
+                                    Мы готовы создать программное обеспечение с нуля
+                                </p>
+                            </div>
+                            <div class="d-flex justify-content-between pt-5">
+                                <div>
+                                    <p class="text text__block">
+                                        Мы готовы создать программное обеспечение с нуля
+                                    </p>
+                                    <p class="text text__block">
+                                        Разработка UI для Android и Iphone
+                                    </p>
+                                    <p class="text text__block">
+                                        Другие возможные варианты разработки
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div id="advantages">
+            <div class="po-03">
+                <h3>
+                    04. Почему нам доверяют
+                </h3>
+            </div>
+            <div class="row advant__block">
+                <div class="col-12 col-md-6 col-lg-3 justify-content-center">
+                    <div class="advant__img">
+                        <img src="img/advantages/advant-1.svg">
+                    </div>
+                    <p class="text pt-4">Разработчики с опытом работы в крупнейших IT-компаниях</p>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="advant__img">
+                        <img src="img/advantages/advant-2.svg">
+                    </div>
+                    <p class="text pt-4">Выделенный менеджер проекта для решения только ваших задач </p>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="advant__img">
+                        <img src="img/advantages/advant-3.svg">
+                    </div>
+                    <p class="text pt-4">Бесшовный переход на новое ПО без остановки текущих процессов</p>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="advant__img">
+                        <img src="img/advantages/advant-4.svg">
+                    </div>
+                    <p class="text pt-4">Долгосрочная техническая поддержка после завершения работ</p>
+                </div>
+            </div>
+        </div>
+        <div id="news">
+            <div class="po-03">
+                <h3>
+                    05. Новости
+                </h3>
+            </div>
+            <div class="row advant__block">
+                <div class="col-12 col-md-4">
+                    <div class="advant__width">
+                        <h3>
+                            Назначение директора «Максофт» Общественным Обмудсменом Пензинской области
+                        </h3>
+                        <p class="text pt-4">Компания "Максофт" поможет вам успешно перейти на российское ПО и оборудование.
+                            Мы являемся официальными партнерами российских разработчиков</p>
+                    </div>
+
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="advant__width">
+                        <h3>
+                            Назначение директора «Максофт» Общественным Обмудсменом Пензинской области
+                        </h3>
+                        <p class="text pt-4">Компания "Максофт" поможет вам успешно перейти на российское ПО и оборудование.
+                            Мы являемся официальными партнерами российских разработчиков</p>
+                    </div>
+
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="advant__width">
+                        <h3>
+                            Назначение директора «Максофт» Общественным Обмудсменом Пензинской области
+                        </h3>
+                        <p class="text pt-4">Компания "Максофт" поможет вам успешно перейти на российское ПО и оборудование.
+                            Мы являемся официальными партнерами российских разработчиков</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer>
+    <div class="header__container container-xl">
+        <div class="row">
+            <div class="d-flex justify-content-center justify-content-lg-start col-12 col-lg-8">
+                <div>
+                    <div class="d-block d-md-flex w-100">
+                        <div class="d-flex justify-content-center">
+                            <a href="#">
+                                <img src="img/logo.svg" class="logo">
+                            </a>
+                        </div>
+                        <nav class="m-0 d-flex align-items-center w-100 ">
+                            <ul class="m-0 p-0 d-flex">
+                                <li><a href="#services" class="text-white">Наши услуги</a></li>
+                                <li><a href="#we_work" class="text-white">Как мы работаем</a></li>
+                                <li><a href="#advantages" class="text-white">Наши преимущества</a></li>
+                                <li><a href="#" class="text-white">Контакты</a></li>
+                            </ul>
+                        </nav>
+
+                    </div>
+                    <div>
+                        <p class="pt-4">
+                            © 2022 ООО «Максофт»
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="d-block d-sm-flex align-item-center justify-content-between pt-3 col-12 col-lg-4">
+                <div class="d-flex flex-column justify-content-center justify-content-sm-start">
+                    <div class="d-flex justify-content-center justify-content-sm-start">
+                        <p class="m-0">Связаться с нами</p>
+                    </div>
+                    <div class="d-flex justify-content-center justify-content-sm-start">
+                        <a href="tel:88000000000">8 800 000 00 00</a>
+                    </div>
+                    <div class="d-flex justify-content-center justify-content-sm-start">
+                        <a href="mailto:e-mail@mail.ru">e-mail@mail.ru</a>
+                    </div>
+
+
+
+                </div>
+                <div class="d-flex flex-column justify-content-center justify-content-sm-start">
+                    <div class="d-flex justify-content-center justify-content-sm-start">
+                        <p class="m-0">Офис</p>
+                    </div>
+                    <div class="d-flex justify-content-center justify-content-sm-start">
+                        <p>000000 г. Москва, <br>
+                            ул. Московская 123</p>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center justify-content-sm-start">
+                    <div>
+                        <img src="img/footer-img.svg">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="js/js.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 </body>
 </html>
